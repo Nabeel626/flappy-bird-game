@@ -1,3 +1,95 @@
-body {
-  background-color: red;
+@import url("https://fonts.googleapis.com/css2?family=Honk&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P");
+@keyframes animatebottom {
+  from {
+    bottom: -200px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0;
+    opacity: 1;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#main {
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  margin: 0;
+  background-color: black;
+  box-sizing: border-box;
+  background-size: cover;
+}
+
+.loadingbar {
+  position: absolute;
+  top: 25%;
+  left: 0%;
+}
+
+.main-menu {
+  display: none;
+  text-align: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  position: relative;
+  animation-name: animatebottom;
+  animation-duration: 3s;
+  top: 5vh;
+}
+.main-menu a {
+  text-decoration: none;
+  color: black;
+}
+.main-menu h1 {
+  font-size: 75px;
+  font-family: "Honk", system-ui;
+}
+.main-menu .main-menu__playButton, .main-menu .main-menu__scoreButton {
+  font-family: "Press Start 2P", cursive;
+  font-size: 21px;
+  background: rgb(255, 210, 125);
+  position: relative;
+  top: 30%;
+  padding: 10px;
+  width: 40%;
+  cursor: pointer;
+  height: 30%;
+  background-color: none;
+  display: inline-block;
+  box-shadow: inset -4px -4px 0px 0px rgb(252, 93, 93);
+}
+.main-menu .main-menu__playButton:hover, .main-menu .main-menu__playButton:focus, .main-menu .main-menu__scoreButton:hover, .main-menu .main-menu__scoreButton:focus {
+  background: rgb(255, 190, 69);
+  box-shadow: inset -6px -6px 0px 0px rgb(252, 93, 93);
+}
+.main-menu .main-menu__playButton:active, .main-menu .main-menu__scoreButton:active {
+  box-shadow: inset 4px 4px 0px 0px rgb(252, 93, 93);
+}
+.main-menu .main-menu__playButton:before, .main-menu .main-menu__playButton:after, .main-menu .main-menu__scoreButton:before, .main-menu .main-menu__scoreButton:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-sizing: content-box;
+}
+.main-menu .main-menu__playButton:before, .main-menu .main-menu__scoreButton:before {
+  top: -6px;
+  left: 0;
+  border-top: 6px black solid;
+  border-bottom: 6px black solid;
+}
+.main-menu .main-menu__playButton:after, .main-menu .main-menu__scoreButton:after {
+  left: -6px;
+  top: 0;
+  border-left: 6px black solid;
+  border-right: 6px black solid;
+}
+.main-menu .main-menu__playButton {
+  position: relative;
+  top: 5em;
 }/*# sourceMappingURL=style.css.map */
