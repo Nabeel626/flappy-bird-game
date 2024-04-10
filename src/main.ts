@@ -1,15 +1,3 @@
-//bird width and height
-let birdwidth = 34;
-let birdheight = 24;
-let birdX = 360 / 8;
-let birdY = 640 / 2;
-
-let bird = {
-    x : birdX,
-    y : birdY,
-    width : birdwidth,
-    height: birdheight,
-}
 
 //WINDOW LOADER WHEN APP STARTS
 
@@ -32,5 +20,5 @@ const onPageLoad = () => { //This is a on load page function when the window loa
 }
 
 window.onload = () => { //When the window starts then it will run the page load function
-    onPageLoad();
+    onPageLoad();    
 }

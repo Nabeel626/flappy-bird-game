@@ -25,6 +25,16 @@
   background-size: cover;
 }
 
+#main-game {
+  background-repeat: no-repeat;
+  height: 100vh;
+  background-image: url("/images/flappy-bird-background.gif");
+  margin: 0;
+  background-color: black;
+  box-sizing: border-box;
+  background-size: cover;
+}
+
 .loadingbar {
   position: absolute;
   top: 25%;
@@ -54,13 +64,11 @@
   font-size: 21px;
   background: rgb(255, 210, 125);
   position: relative;
-  top: 30%;
+  top: 7em;
   padding: 10px;
   width: 40%;
   cursor: pointer;
-  height: 30%;
   background-color: none;
-  display: inline-block;
   box-shadow: inset -4px -4px 0px 0px rgb(252, 93, 93);
 }
 .main-menu .main-menu__playButton:hover, .main-menu .main-menu__playButton:focus, .main-menu .main-menu__scoreButton:hover, .main-menu .main-menu__scoreButton:focus {
@@ -89,7 +97,48 @@
   border-left: 6px black solid;
   border-right: 6px black solid;
 }
-.main-menu .main-menu__playButton {
+.main-menu .main-menu__scoreButton {
   position: relative;
-  top: 5em;
+  top: 9em;
+}
+
+#game-container {
+  position: relative;
+  width: 400px;
+  height: 500px;
+  background-color: red;
+  border: 1px solid black;
+  margin: auto;
+  overflow: hidden;
+}
+#game-container #blocks {
+  width: 50px;
+  height: 500px;
+  background-color: green;
+  position: relative;
+  left: 400px;
+  animation: block 2s infinite linear;
+}
+#game-container #holepath {
+  width: 50px;
+  height: 150px;
+  background-color: rgb(76, 196, 204);
+  position: relative;
+  left: 400px;
+  top: -500px;
+  animation: block 2s infinite linear;
+}
+#game-container #character-bird {
+  position: absolute;
+  top: 200px;
+  border-radius: 50%;
+  border: 3px solid black;
+}
+@keyframes block {
+  0% {
+    left: 600px;
+  }
+  100% {
+    left: -50px;
+  }
 }/*# sourceMappingURL=style.css.map */

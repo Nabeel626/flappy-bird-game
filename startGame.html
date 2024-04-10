@@ -10,20 +10,17 @@
     <title>Flappy Bird - Play</title>
 
 </head>
-<body>
+<body id="main-game">
     
-    <div class="scoreboard">
-        <ul>
-            <li>score: </li>
-            <li>0</li>
-        </ul>
-
+    <div id="game-container">
+        <div id="blocks"></div>
+        <div id="holepath"></div>
+        <div id="character-bird">
+            <img src="/images/flappybirdv1.gif" alt="flapping bird" width="50" height="40">
+        </div>
     </div>
 
-    <!-- <h1 class="scoreboard">0</h1> -->
-
-
-    <script type="module" src="/src/main.ts"></script>
+    <script type="module" src="/src/game.ts"></script>
 
 </body>
 </html>
