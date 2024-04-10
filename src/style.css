@@ -102,43 +102,80 @@
   top: 9em;
 }
 
-#game-container {
-  position: relative;
-  width: 400px;
-  height: 500px;
-  background-color: red;
-  border: 1px solid black;
-  margin: auto;
-  overflow: hidden;
+.background {
+  height: 100%;
+  width: 100vw;
+  background-size: cover;
 }
-#game-container #blocks {
-  width: 50px;
-  height: 500px;
-  background-color: green;
-  position: relative;
-  left: 400px;
-  animation: block 2s infinite linear;
+
+.bird {
+  height: 100px;
+  width: 130px;
+  position: fixed;
+  top: 40vh;
+  left: 30vw;
+  z-index: 100;
 }
-#game-container #holepath {
-  width: 50px;
-  height: 150px;
-  background-color: rgb(76, 196, 204);
-  position: relative;
-  left: 400px;
-  top: -500px;
-  animation: block 2s infinite linear;
+
+.pipe_sprite {
+  position: fixed;
+  top: 40vh;
+  left: 100vw;
+  height: 70vh;
+  width: 16vw;
+  background: radial-gradient(lightgreen 50%, green);
+  border: 5px solid black;
 }
-#game-container #character-bird {
+
+.message {
   position: absolute;
-  top: 200px;
-  border-radius: 50%;
-  border: 3px solid black;
+  z-index: 1;
+  font-family: "Press Start 2P", cursive;
+  color: black;
+  top: 40%;
+  left: 50%;
+  width: 80%;
+  padding: 30px;
+  font-size: 30pX;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
-@keyframes block {
-  0% {
-    left: 600px;
+
+.messageStyle {
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 5%;
+}
+
+.score {
+  position: fixed;
+  z-index: 1;
+  font-size: px;
+  text-align: center;
+}
+
+.score_val {
+  font-size: 75px;
+  position: fixed;
+  top: 0;
+  left: 42%;
+  font-family: "Honk", system-ui;
+}
+
+@media screen and (min-width: 768px) {
+  .message {
+    font-size: 50px;
+    top: 50%;
+    white-space: nowrap;
   }
-  100% {
-    left: -50px;
+  .score {
+    font-size: 8vh;
+  }
+  .bird {
+    width: 120px;
+    height: 90px;
+  }
+  .pipe_sprite {
+    width: 2vw;
   }
 }/*# sourceMappingURL=style.css.map */
