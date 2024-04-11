@@ -73,6 +73,9 @@ let score_val : any = document.querySelector('.score_val');
 let message : any = document.querySelector('.message');
 let score_title : any = document.querySelector('.score_title');
 
+let score = 0;
+let highscore = 0;
+
 let game_state = 'Start'; //this sets the start for the game state, when this changes the game will end
 characterBird.style.display = 'none'; 
 message.classList.add('messageStyle'); //this sets adds the classlist to the message
@@ -81,7 +84,7 @@ document.addEventListener('keydown', (e) => { //this sets it so when the button 
     
     if(e.key == 'Enter' && game_state != 'Play'){
        
-        document.querySelectorAll('.pipe_sprite').forEach((e) => {
+        document.querySelectorAll('.showPipe').forEach((e) => {
             e.remove();
         });
 
@@ -97,27 +100,47 @@ document.addEventListener('keydown', (e) => { //this sets it so when the button 
 });
 
 const play = () => {
+    
     const move = () => {
+        
         if(game_state != 'Play') return;
 
-        let pipe_sprite = document.querySelectorAll('.pipe_sprite');
+        let showPipe = document.querySelectorAll('.showPipe');
         
-        pipe_sprite.forEach((item : any) => {
-            let pipe_sprite_props = item.getBoundingClientRect();
+        showPipe.forEach((item : any) => {
+            let pipeProperty = item.getBoundingClientRect();
             bird_props = bird_property.getBoundingClientRect();
 
-            if(pipe_sprite_props.right <= 0){
+            if(pipeProperty.right <= 0){
                 
                 item.remove();
 
             } else {
                 
-                if(bird_props.left < pipe_sprite_props.left + pipe_sprite_props.width && bird_props.left + bird_props.width > pipe_sprite_props.left && bird_props.top < pipe_sprite_props.top + pipe_sprite_props.height && bird_props.top + bird_props.height > pipe_sprite_props.top){
+                if(bird_props.left < pipeProperty.left + pipeProperty.width && bird_props.left + bird_props.width > pipeProperty.left && bird_props.top < pipeProperty.top + pipeProperty.height && bird_props.top + bird_props.height > pipeProperty.top){
                     
-                    game_state = 'End';
+                    score = score_val.innerHTML;
+                    
+                    if(score > highscore) {
+
+                        highscore = score;
+                        console.log("you beat highscore");
+
+                    } else {
+
+                        console.log("you did not beat highscore");
+                        
+
+                    }
+
+                    console.log(highscore);
+
+                    game_state = 'End';                    
                     message.innerHTML = 
                     `Game Over! <br><br> 
-                    
+
+                    Score: ${score} <br><br> 
+
                     Press "ENTER" To Restart Game <br><br>
                     
                     <a href="index.html"><button class="return__backToMain">MENU</button></a>
@@ -129,10 +152,10 @@ const play = () => {
 
                 } else {
                     
-                    if(pipe_sprite_props.right < bird_props.left && pipe_sprite_props.right + move_speed >= bird_props.left && item.increase_score == "1"){
+                    if(pipeProperty.right < bird_props.left && pipeProperty.right + move_speed >= bird_props.left && item.increase_score == "1"){
                         score_val.innerHTML =+ score_val.innerHTML + 1;
                     }
-                    item.style.left = pipe_sprite_props.left - move_speed + 'px';
+                    item.style.left = pipeProperty.left - move_speed + 'px';
                 }
             }
         });
@@ -160,10 +183,12 @@ const play = () => {
             
             game_state = 'End';
             message.style.left = '9vw';
+
             window.location.reload();
             message.classList.remove('messageStyle');
-            return;
+
         }
+
         bird_property.style.top = bird_props.top + bird_dy + 'px';
         bird_props = bird_property.getBoundingClientRect();
 
@@ -172,35 +197,41 @@ const play = () => {
 
     requestAnimationFrame(apply_gravity);
 
-    let pipe_seperation = 0;
-
-    let pipe_gap = 35;
+    let seperatePipes = 0;
+    let pipeGap = 35;
 
     const createPipe = () => { //this will create the pipes
+            
+        let showPipe : any = document.createElement('div');
+        let showPipeInverted = document.createElement('div'); //this is the pipe for the top
+
         if(game_state != 'Play') return; 
 
-        if(pipe_seperation > 115){ //if the pipes are seperated at a certain length
-            pipe_seperation = 0;
+        if(seperatePipes > 115){ //if the pipes are seperated at a certain length
+            seperatePipes = 0;
 
-            let pipe_posi = Math.floor(Math.random() * 43) + 8; //this randomisers the position of the
+            let pipePosition = Math.floor(Math.random() * 43) + 8; //this randomisers the position of the
             
-            let pipe_sprite_inv = document.createElement('div'); //this is teh pipe for the top
-            pipe_sprite_inv.className = 'pipe_sprite';
-            pipe_sprite_inv.style.top = pipe_posi - 70 + 'vh';
-            pipe_sprite_inv.style.left = '100vw';
+            showPipeInverted.className = 'showPipe'; //this is styling for the pipes that are at the top
+            showPipeInverted.style.background = `url("/images/pipe2.png") center center`;
+            showPipeInverted.style.backgroundSize = "100% 100%";
+            showPipeInverted.style.top = pipePosition - 70 + 'vh';
+            showPipeInverted.style.left = '100vw';
 
-            document.body.appendChild(pipe_sprite_inv);  //this is teh pipe for the bottom
-            let pipe_sprite : any = document.createElement('div');
-            pipe_sprite.className = 'pipe_sprite';
-            pipe_sprite.style.top = pipe_posi + pipe_gap + 'vh';
-            pipe_sprite.style.backgroundImage = `url("/images/pipe1.png")`;
-            pipe_sprite.style.width = ""
-            pipe_sprite.style.left = '100vw';
-            pipe_sprite.increase_score = '1';
+            document.body.appendChild(showPipeInverted);  //this is the pipe for the bottom
 
-            document.body.appendChild(pipe_sprite);
+            showPipe.className = 'showPipe'; //this is styling for the pipes that are at the bottom
+            showPipe.style.top = pipePosition + pipeGap + 'vh';
+            showPipe.style.background = `url("/images/pipe1.png") center center`;
+            showPipe.style.backgroundSize = "100% 100%";
+            showPipe.style.width = 90 + "px";
+            showPipe.style.left = '100vw';
+            showPipe.increase_score = '1';
+
+            document.body.appendChild(showPipe);
         }
-        pipe_seperation++;
+
+        seperatePipes++;
         requestAnimationFrame(createPipe);
     }
     requestAnimationFrame(createPipe);
