@@ -117,14 +117,12 @@
   z-index: 100;
 }
 
-.pipe_sprite {
+.showPipe {
   position: fixed;
   top: 40vh;
   left: 100vw;
   height: 70vh;
-  width: 16vw;
-  background: radial-gradient(lightgreen 50%, green);
-  border: 5px solid black;
+  width: 18vw;
 }
 
 .message {
@@ -139,6 +137,21 @@
   font-size: 30pX;
   transform: translate(-50%, -50%);
   text-align: center;
+}
+.message .return__backToMain, .message .return__backToScore {
+  font-family: "Press Start 2P", cursive;
+  font-size: 21px;
+  background: rgb(255, 210, 125);
+  box-shadow: grey 2px 3px;
+  border-radius: 10px;
+  background-color: none;
+  padding: 10px;
+  width: 40%;
+  cursor: pointer;
+  background-color: none;
+}
+.message .return__backToMain:hover, .message .return__backToScore:hover {
+  background: rgb(255, 190, 69);
 }
 
 .messageStyle {
@@ -156,10 +169,10 @@
 }
 
 .score_val {
-  font-size: 75px;
+  font-size: 90px;
   position: fixed;
   top: 0;
-  left: 42%;
+  left: 46%;
   font-family: "Honk", system-ui;
 }
 
