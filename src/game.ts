@@ -136,6 +136,7 @@ const play = () => {
                     console.log(highscore);
 
                     game_state = 'End';                    
+
                     message.innerHTML = 
                     `Game Over! <br><br> 
 
