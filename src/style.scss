@@ -164,13 +164,13 @@ $alt-shadow-color:  grey;
 
 // }
 
-.background {
+.container {
 	height: 100%;
 	width: 100vw;
     background-size: cover;
 }
 
-.bird {
+.character-bird {
 	height: 100px;
 	width: 130px;
 	position: fixed;
@@ -204,9 +204,10 @@ $alt-shadow-color:  grey;
 }
 
 .messageStyle{
-	background: white;
-	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-	border-radius: 5%;
+    background-image: linear-gradient(to bottom, #a3f4e8, #99eff1, #96e9f9, #99e2fe, #a1daff);
+	box-shadow: #a3f4e8 1px 1px 10px 10px;
+    border: 2px solid black;
+	border-radius: 8%;
 }
 
 .score {
@@ -233,11 +234,11 @@ $alt-shadow-color:  grey;
 	.score{
 		font-size: 8vh;
 	}
-	.bird{
+	.character-bird{
 		width: 120px;
 		height: 90px;
 	}
 	.pipe_sprite{
-		width: 2vw;
+		width: 8vw;
 	}
 }
