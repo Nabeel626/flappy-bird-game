@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "hompage": "https://Nabeel626.github.io/flappy-bird-game",
+  "homepage": "https://Nabeel626.github.io/flappy-bird-game",
   "author": "Nabeel",
   "scripts": {
     "dev": "vite",
