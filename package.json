@@ -6,9 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "hompage": "https://Nabeel626.github.io/flappy-bird-game",
+    "author": "Nabeel"
   },
   "devDependencies": {
+    "gh-pages": "^6.1.1",
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
   },
