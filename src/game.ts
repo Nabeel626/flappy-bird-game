@@ -1,62 +1,4 @@
-// let block : any = document.getElementById("blocks");
-// let hole : any = document.getElementById("holepath");
-// let character : any = document.getElementById("character-bird");
-
-// let jumping = 0;
-// let counter = 0;
-// let highscore = 0;
-
-// hole.addEventListener('animationiteration', () => {
-//     let random = -((Math.random() * 300) + 150);
-//     hole.style.top = random + "px";
-//     counter++;
-// });
-
-// setInterval(() => {
-//     let characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
-//     if(jumping == 0){
-//         character.style.top = (characterTop + 3) +"px";
-//     }
-//     let blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
-//     let holeTop = parseInt(window.getComputedStyle(hole).getPropertyValue("top"));
-//     let cTop = -(500 - characterTop);
-//     if((characterTop > 480) || ((blockLeft < 20) && (blockLeft >- 50) && ((cTop < holeTop) || (cTop > holeTop + 130)))){
-//         if(counter > highscore) {
-            
-//             counter = highscore;
-//             alert(`Game over! You got a new Score! Highscore: ${highscore}  Score: ${counter}`);
-
-//         } else if (counter <= highscore) {
-//             alert(`Game over! Better Luck next time! Highscore: ${highscore}  Score: ${counter}`);
-//         } 
-
-//         console.log(highscore + ",     score: " + counter);
-
-//         character.style.top = 100 + "px";        
-//         counter = 0;
-        
-
-//     }
-// },10);
-
-// const jump = () => {
-//     jumping = 1;
-//     let jumpCount = 0;
-//     let jumpInterval = setInterval(() => {
-//         let characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
-//         if((characterTop > 6) && (jumpCount < 15)){
-//             character.style.top = (characterTop - 5) + "px";
-//         }
-//         if(jumpCount>20){
-//             clearInterval(jumpInterval);
-//             jumping = 0;
-//             jumpCount = 0;
-//         }
-//         jumpCount++;
-//     },10);
-// }
-
-// window.addEventListener("click", jump)
+import "./style.scss";
 
 let move_speed = 3, grativy = 0.5;
 let bird_property : any = document.querySelector('.character-bird');
@@ -73,8 +15,8 @@ let score_val : any = document.querySelector('.score_val');
 let message : any = document.querySelector('.message');
 let score_title : any = document.querySelector('.score_title');
 
-let score = 0;
-let highscore = 0;
+let score : number = 0;
+let highscore : number = 0;
 
 let game_state = 'Start'; //this sets the start for the game state, when this changes the game will end
 characterBird.style.display = 'none'; 
@@ -108,8 +50,9 @@ const play = () => {
         let showPipe = document.querySelectorAll('.showPipe');
         
         showPipe.forEach((item : any) => {
-            let pipeProperty = item.getBoundingClientRect();
-            bird_props = bird_property.getBoundingClientRect();
+            
+            let pipeProperty = item.getBoundingClientRect(); //This returns the size of an element and its position that is relative to the viewport/ window
+            bird_props = bird_property.getBoundingClientRect(); //this has 8 properties -  left, top, right, bottom, x, y, width, height.
 
             if(pipeProperty.right <= 0){
                 
@@ -119,28 +62,12 @@ const play = () => {
                 
                 if(bird_props.left < pipeProperty.left + pipeProperty.width && bird_props.left + bird_props.width > pipeProperty.left && bird_props.top < pipeProperty.top + pipeProperty.height && bird_props.top + bird_props.height > pipeProperty.top){
                     
-                    score = score_val.innerHTML;
-                    
-                    if(score > highscore) {
-
-                        highscore = score;
-                        console.log("you beat highscore");
-
-                    } else {
-
-                        console.log("you did not beat highscore");
-                        
-
-                    }
-
-                    console.log(highscore);
-
                     game_state = 'End';                    
 
                     message.innerHTML = 
                     `Game Over! <br><br> 
 
-                    Score: ${score} <br><br> 
+                    Score: ${Number(score_val.innerHTML)} <br><br> 
 
                     Press "ENTER" To Restart Game <br><br>
                     
@@ -149,13 +76,13 @@ const play = () => {
 
                     message.classList.add('messageStyle');
                     characterBird.style.display = 'none';
-                    return;
 
                 } else {
                     
                     if(pipeProperty.right < bird_props.left && pipeProperty.right + move_speed >= bird_props.left && item.increase_score == "1"){
                         score_val.innerHTML =+ score_val.innerHTML + 1;
                     }
+
                     item.style.left = pipeProperty.left - move_speed + 'px';
                 }
             }
@@ -180,12 +107,16 @@ const play = () => {
             }
         });
 
-        if(bird_props.top <= 0 || bird_props.bottom >= container.bottom){
-            
-            game_state = 'End';
-            message.style.left = '9vw';
+        console.log("bottom container " + container);
+        console.log("bird property bottom " + bird_props.bottom);
+        console.log("bird property top " + bird_props.top);
 
-            window.location.reload();
+        if(bird_props.top <= 0 || bird_props.bottom >= container.height){
+
+            game_state = 'End';
+            message.style.left = '9vw';            
+
+            game_state = 'Play';
             message.classList.remove('messageStyle');
 
         }
