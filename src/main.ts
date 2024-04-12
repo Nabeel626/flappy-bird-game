@@ -1,6 +1,7 @@
 
-//WINDOW LOADER WHEN APP STARTS
+import "./style.scss";
 
+//WINDOW LOADER WHEN APP STARTS
 const showPage = () => { //This is a on show function where the window is loadded then shpow the page
     const loadingBar = document.querySelector(".loadingbar");
     const body = document.querySelector("#main");
