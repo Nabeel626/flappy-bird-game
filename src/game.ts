@@ -15,9 +15,6 @@ let score_val : any = document.querySelector('.score_val');
 let message : any = document.querySelector('.message');
 let score_title : any = document.querySelector('.score_title');
 
-let score : number = 0;
-let highscore : number = 0;
-
 let game_state = 'Start'; //this sets the start for the game state, when this changes the game will end
 characterBird.style.display = 'none'; 
 message.classList.add('messageStyle'); //this sets adds the classlist to the message
@@ -111,15 +108,34 @@ const play = () => {
         console.log("bird property bottom " + bird_props.bottom);
         console.log("bird property top " + bird_props.top);
 
-        if(bird_props.top <= 0 || bird_props.bottom >= container.height){
+        let containercheck = container.getBoundingClientRect();
 
-            game_state = 'End';
-            message.style.left = '9vw';            
+        console.log(containercheck.bottom);
+        
 
-            game_state = 'Play';
-            message.classList.remove('messageStyle');
+        if((bird_props.top <= containercheck.top && bird_props.bottom <= containercheck.top) || (bird_props.top >= containercheck.bottom && bird_props.bottom > containercheck.bottom)){
+                
+                game_state = 'End';                        
+                
+                message.innerHTML = 
+                `Game Over! <br><br> 
+
+                Score: ${Number(score_val.innerHTML)} <br><br> 
+
+                Press "ENTER" To Restart Game <br><br>
+                
+                <a href="index.html"><button class="return__backToMain">MENU</button></a>
+                <a href="scoreboard.html"><button class="return__backToScore">SCORE</button></a>`;
+
+                message.classList.add('messageStyle');
+                characterBird.style.display = 'none';
+
 
         }
+
+        game_state = 'Play';
+        characterBird.style.display = 'block';
+        message.classList.remove('messageStyle');
 
         bird_property.style.top = bird_props.top + bird_dy + 'px';
         bird_props = bird_property.getBoundingClientRect();
