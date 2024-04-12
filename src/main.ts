@@ -7,7 +7,7 @@ const showPage = () => { //This is a on show function where the window is loadde
     const body = document.querySelector("#main");
     const mainMenuPage = document.querySelector(".main-menu");
 
-    body?.setAttribute("style", "background-image: url('/images/flappy-bird-background.gif');");
+    body?.setAttribute("style", "background-image: url('./images/flappy-bird-background.gif');");
     loadingBar?.setAttribute("style", "display: none;");
     mainMenuPage?.setAttribute("style", "display: grid;");
 }
