@@ -17,6 +17,11 @@ $alt-shadow-color:  grey;
     to { bottom:0; opacity:1; }
 }
 
+@keyframes animatebottom2 { 
+    from { bottom:-70px; opacity:0; } 
+    to { bottom:0; opacity:1; }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -68,9 +73,19 @@ $alt-shadow-color:  grey;
     animation-duration: 3s;
     top: 5vh;
     
-    a {
+    .main-menu__linkOne, .main-menu__linkTwo {
+        position: relative;
+        top: 10em;
+        left: 28%;
         text-decoration: none;
         color: $alt-button-background;
+        width: 40%;
+        height: 40%;
+    }
+
+    .main-menu__linkTwo {
+        position: relative;
+        top: 14em;
     }
 
     h1 {
@@ -83,9 +98,10 @@ $alt-shadow-color:  grey;
         font-size: 21px;
         background: $button-background;
         position: relative;
-        top: 7em;
+        top: 0;
+        left: 0;
         padding: 10px;
-        width: 40%;
+        width: 100%;
         cursor: pointer;
         background-color: none;
         box-shadow: inset (-$shadow-width) (-$shadow-width) 0px 0px $shadow-color;
@@ -124,16 +140,11 @@ $alt-shadow-color:  grey;
         }      
     }
 
-    .main-menu__scoreButton {
-        position: relative;
-        top: 9em;
-    }
-
 }
 
 
 .scoreboard {
-    animation-name: animatebottom;
+    animation-name: animatebottom2;
     animation-duration: 3s;
     font-family: 'Press Start 2P', cursive;
     font-size: 2.5vw;
@@ -168,7 +179,12 @@ $alt-shadow-color:  grey;
         top: 0;
         border-left: $outline-width black solid;
         border-right: $outline-width black solid;
-    }   
+    }
+    
+    h2 {
+        font-size: 30px;
+        
+    }
 }
 
 .back-to-menu {
@@ -179,8 +195,11 @@ $alt-shadow-color:  grey;
     top: 80%;
     left: 25%;
     padding: 10px;
+    height: 10%;
     width: 50%;
     cursor: pointer;
+    animation-name: animatebottom2;
+    animation-duration: 3s;
     background-color: none;
     box-shadow: inset (-$shadow-width) (-$shadow-width) 0px 0px $shadow-color;
     
