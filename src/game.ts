@@ -115,7 +115,7 @@ const play = () => {
             game_state = 'End';                        
             console.log("ENDED");
             
-            window.location.href = "startGame.html";
+            window.location.reload();
 
         }
 
@@ -176,10 +176,9 @@ const savescores = () => {
         localStorage.setItem("currentScore", String(score_val.innerHTML));
 
         const gethighscore : any = localStorage.getItem("highScore");
-        const getscore : any= localStorage.getItem("currentScore");
     
-        if(getscore > gethighscore) {
-            localStorage.setItem("highScore", getscore);
+        if(score_val.innerHTML > gethighscore) {
+            localStorage.setItem("highScore", String(score_val.innerHTML));
         }
 
     } else {
