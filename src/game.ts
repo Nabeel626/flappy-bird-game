@@ -59,6 +59,8 @@ const play = () => {
                 
                 if(bird_props.left < pipeProperty.left + pipeProperty.width && bird_props.left + bird_props.width > pipeProperty.left && bird_props.top < pipeProperty.top + pipeProperty.height && bird_props.top + bird_props.height > pipeProperty.top){
                     
+                    savescores();
+
                     game_state = 'End';                    
 
                     message.innerHTML = 
@@ -104,45 +106,26 @@ const play = () => {
             }
         });
 
-        console.log("bottom container " + container);
-        console.log("bird property bottom " + bird_props.bottom);
-        console.log("bird property top " + bird_props.top);
-
-        let containercheck = container.getBoundingClientRect();
-
-        console.log(containercheck.bottom);
-        
+        let containercheck = container.getBoundingClientRect();        
 
         if((bird_props.top <= containercheck.top && bird_props.bottom <= containercheck.top) || (bird_props.top >= containercheck.bottom && bird_props.bottom > containercheck.bottom)){
-                
-                game_state = 'End';                        
-                
-                message.innerHTML = 
-                `Game Over! <br><br> 
+            
+            savescores();
 
-                Score: ${Number(score_val.innerHTML)} <br><br> 
-
-                Press "ENTER" To Restart Game <br><br>
-                
-                <a href="index.html"><button class="return__backToMain">MENU</button></a>
-                <a href="scoreboard.html"><button class="return__backToScore">SCORE</button></a>`;
-
-                message.classList.add('messageStyle');
-                characterBird.style.display = 'none';
-
+            game_state = 'End';                        
+            console.log("ENDED");
+            
+            window.location.href = "startGame.html";
 
         }
 
-        game_state = 'Play';
-        characterBird.style.display = 'block';
-        message.classList.remove('messageStyle');
-
         bird_property.style.top = bird_props.top + bird_dy + 'px';
         bird_props = bird_property.getBoundingClientRect();
+        
 
         requestAnimationFrame(apply_gravity); //this will apply the gravity onto the bird
     }
-
+    
     requestAnimationFrame(apply_gravity);
 
     let seperatePipes = 0;
@@ -184,3 +167,22 @@ const play = () => {
     }
     requestAnimationFrame(createPipe);
 }
+
+const savescores = () => {
+
+    if(localStorage) { //this will check if the local storage is available (truthy/ falsy)
+        
+        // Save the current score/ high score to local storage
+        localStorage.setItem("currentScore", String(score_val.innerHTML));
+
+        const gethighscore : any = localStorage.getItem("highScore");
+        const getscore : any= localStorage.getItem("currentScore");
+    
+        if(getscore > gethighscore) {
+            localStorage.setItem("highScore", getscore);
+        }
+
+    } else {
+        alert("NO LOCAL STORAGE!");
+    }
+};
