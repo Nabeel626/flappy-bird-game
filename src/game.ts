@@ -1,6 +1,6 @@
 import "./style.scss";
 
-let move_speed = 3, grativy = 0.5;
+let move_speed = 3, grativy = 0.2;
 let bird_property : any = document.querySelector('.character-bird');
 let characterBird : any = document.querySelector('#characterBird');
 let container : any = document.querySelector<Element>('.container');
