@@ -32,7 +32,6 @@ $alt-shadow-color:  grey;
     background-repeat: no-repeat;
     min-height: 100vh;
     margin: 0;
-    background-color: black;
     box-sizing: border-box;
     background-size: cover;
 }
@@ -42,7 +41,6 @@ $alt-shadow-color:  grey;
     height: 100vh;
     background-image: url('./images/flappybirdbackground.gif');
     margin: 0;
-    background-color: black;
     box-sizing: border-box;
     background-size: cover;
 }
@@ -52,7 +50,6 @@ $alt-shadow-color:  grey;
     height: 100vh;
     background-image: url('./images/flappybirdbackground.gif');
     margin: 0;
-    background-color: black;
     box-sizing: border-box;
     background-size: cover;
 }
@@ -334,7 +331,6 @@ $alt-shadow-color:  grey;
         background-repeat: no-repeat;
         height: 100vh;
         margin: 0;
-        background-color: black;
         box-sizing: border-box;
         background-size: cover;
     }
@@ -343,7 +339,6 @@ $alt-shadow-color:  grey;
         background-repeat: no-repeat;
         height: 100vh;
         margin: 0;
-        background-color: black;
         box-sizing: border-box;
         background-size: cover;
     }
@@ -371,8 +366,9 @@ $alt-shadow-color:  grey;
     .scoreboard {
         display: grid;
         grid-template-areas: 
-        "highscore score"
-        "highscore_number score_number";
+        "highscore highscore_number"
+        "score score_number";
+        text-align: start;
 
         .scoreboard_highscore {
             grid-area: highscore;
@@ -380,15 +376,23 @@ $alt-shadow-color:  grey;
 
         .scoreboard__displayHighScore {
             grid-area: highscore_number;
+            font-size: 80px;
             position: relative;
+            left: 1em;
         }
 
         .scoreboard_score {
             grid-area: score;
+            position: relative;
+            top: 80%;
         }
 
         .scoreboard__displayScore {
             grid-area: score_number;
+            position: relative;
+            top: 80%;
+            left: 1em;
+            font-size: 80px;
         }
 
 
