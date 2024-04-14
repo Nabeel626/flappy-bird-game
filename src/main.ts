@@ -4,13 +4,13 @@ import "./style.scss";
 const highScoreDisplay : any = document.querySelector(".scoreboard__displayHighScore");
 const scoreDisplay : any = document.querySelector(".scoreboard__displayScore");
 const loadingBar = document.querySelector(".loadingbar");
-const body = document.querySelector("#main");
+const body= document.querySelector("#main");
 const mainMenuPage = document.querySelector(".main-menu");
 
 //WINDOW LOADER WHEN APP STARTS
 const showPage = () => { //This is a on show function where the window is loadded then shpow the page
 
-    body?.setAttribute("style", "background-image: url('/src/images/flappybirdbackground.gif'); background-size: cover; background-repeat:no-repeat;");
+    body?.setAttribute("style", `height: 100vh; margin: 0; box-sizing: border-box; background: url('src/images/flappybirdbackground.gif'); background-size: cover; background-repeat:no-repeat;`);
     loadingBar?.setAttribute("style", "display: none;");
     mainMenuPage?.setAttribute("style", "display: grid;");
 
