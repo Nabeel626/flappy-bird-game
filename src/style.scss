@@ -29,9 +29,13 @@ $alt-shadow-color:  grey;
 }
   
 #main {
-    height: 100vh;
+    height: 100vh; 
+    margin: 0; 
+    box-sizing: border-box; 
+    background-image: url("./src/images/flappybirdbackground.gif"); 
+    background-size: cover; 
+    background-repeat:no-repeat;
     margin: 0;
-    box-sizing: border-box;
 }
 
 #main2 {
@@ -285,17 +289,16 @@ $alt-shadow-color:  grey;
     .return__backToMain, .return__backToScore {
         font-family: 'Press Start 2P', cursive;
         font-size: 21px;
-        background: $button-background;
+        background: #a3f4e8;
         box-shadow: grey 2px 3px;
         border-radius: 10px;
         background-color: none;
         padding: 10px;
         width: 40%;
         cursor: pointer;
-        background-color: none;
     
         &:hover {
-            background: $sec-button-background;
+            background: #8bd1ff;
         }
     } 
 }
@@ -322,23 +325,43 @@ $alt-shadow-color:  grey;
     font-family: "Honk", system-ui;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//DEKSTOP VERSION
 @media screen and (min-width: 768px) {
     
     //THIS IS BACKGROUND FOR EACH PAGE
+    #main {
+        background-size: 100vw 100vh;
+    }
+    
     #main2 {
-        background-repeat: no-repeat;
-        height: 100vh;
-        margin: 0;
-        box-sizing: border-box;
-        background-size: cover;
+        background-size: 100vw 100vh;
     }
     
     #main-game {
-        background-repeat: no-repeat;
-        height: 100vh;
-        margin: 0;
-        box-sizing: border-box;
-        background-size: cover;
+        background-size: 100vw 100vh;
     }
 
 
@@ -392,25 +415,25 @@ $alt-shadow-color:  grey;
             left: 1em;
             font-size: 80px;
         }
-
-
-
-
     }
     
     .message{
-		font-size: 50px;
+		font-size: 35px;
 		top: 50%;
-		white-space: nowrap;
+        width: 40%;
 	}
+
 	.score{
 		font-size: 8vh;
 	}
+
 	.character-bird{
 		width: 120px;
 		height: 90px;
 	}
-	.pipe_sprite{
-		width: 8vw;
+    
+	.showPipe{
+		width: 6vw;
 	}
+
 }
