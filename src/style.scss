@@ -29,11 +29,9 @@ $alt-shadow-color:  grey;
 }
   
 #main {
-    background-repeat: no-repeat;
-    min-height: 100vh;
+    height: 100vh;
     margin: 0;
     box-sizing: border-box;
-    background-size: cover;
 }
 
 #main2 {
