@@ -37,7 +37,7 @@ $alt-shadow-color:  grey;
 #main2 {
     background-repeat: no-repeat;
     height: 100vh;
-    background-image: url('./images/flappybirdbackground.gif');
+    background-image: url("./images/flappybirdbackground.gif");
     margin: 0;
     box-sizing: border-box;
     background-size: cover;
@@ -46,7 +46,7 @@ $alt-shadow-color:  grey;
 #main-game {
     background-repeat: no-repeat;
     height: 100vh;
-    background: url('./images/flappybirdbackground.gif');
+    background: url("./images/flappybirdbackground.gif");
     margin: 0;
     box-sizing: border-box;
     background-size: cover;
