@@ -102,14 +102,14 @@ const play = () => {
 
         document.addEventListener('keydown', (event) => {
             if(event.key == 'ArrowUp' || event.key == ' '){
-                characterBird.src = "./images/flappybirdv1.gif";
+                characterBird.src = "./src/images/flappybirdv1.gif";
                 bird_dy = -7.6;
             }
         });
 
         document.addEventListener('keyup', (e) => {
             if(e.key == 'ArrowUp' || e.key == ' '){
-                characterBird.src = ".images/flappybirdv1.gif";
+                characterBird.src = "./src/images/flappybirdv1.gif";
             }
         });
 
