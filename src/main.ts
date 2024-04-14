@@ -13,6 +13,8 @@ const showPage = () => { //This is a on show function where the window is loadde
     body?.setAttribute("style", "background-image: url('./images/flappybirdbackground.gif');");
     loadingBar?.setAttribute("style", "display: none;");
     mainMenuPage?.setAttribute("style", "display: grid;");
+
+    getItems();
 }
 
 const onPageLoad = () => { //This is a on load page function when the window loadsit does a specific command
@@ -30,6 +32,5 @@ const getItems = () => {
 
 window.onload = () => { //When the window starts then it will run the page load function
     onPageLoad();
-    getItems();
     
 }

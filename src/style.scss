@@ -57,6 +57,9 @@ $alt-shadow-color:  grey;
     background-size: cover;
 }
 
+
+
+//THIS IS STARTING AND LOADING PAGE
 .loadingbar {
     position: absolute;
     top: 25%;
@@ -143,6 +146,8 @@ $alt-shadow-color:  grey;
 }
 
 
+
+//THIS IS SCOREBOARD PAGE
 .scoreboard {
     animation-name: animatebottom2;
     animation-duration: 3s;
@@ -323,6 +328,74 @@ $alt-shadow-color:  grey;
 }
 
 @media screen and (min-width: 768px) {
+    
+    //THIS IS BACKGROUND FOR EACH PAGE
+    #main2 {
+        background-repeat: no-repeat;
+        height: 100vh;
+        margin: 0;
+        background-color: black;
+        box-sizing: border-box;
+        background-size: cover;
+    }
+    
+    #main-game {
+        background-repeat: no-repeat;
+        height: 100vh;
+        margin: 0;
+        background-color: black;
+        box-sizing: border-box;
+        background-size: cover;
+    }
+
+
+
+    //THIS IS STARTING AND LOADING PAGE
+    .loadingbar {
+        position: relative;
+        top: 25%;
+        left: 35%;
+        width: 50%;
+
+    }
+
+    .main-menu {
+        h1 {
+            position: relative;
+            right: 0.3em;
+            font-size: 100px;
+        }
+    }
+
+    //THIS IS SCORBBOARD PAGE
+    .scoreboard {
+        display: grid;
+        grid-template-areas: 
+        "highscore score"
+        "highscore_number score_number";
+
+        .scoreboard_highscore {
+            grid-area: highscore;
+        }
+
+        .scoreboard__displayHighScore {
+            grid-area: highscore_number;
+            position: relative;
+        }
+
+        .scoreboard_score {
+            grid-area: score;
+        }
+
+        .scoreboard__displayScore {
+            grid-area: score_number;
+        }
+
+
+
+
+    }
+    
     .message{
 		font-size: 50px;
 		top: 50%;

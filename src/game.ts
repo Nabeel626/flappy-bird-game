@@ -75,6 +75,7 @@ const play = () => {
 
                     message.classList.add('messageStyle');
                     characterBird.style.display = 'none';
+                    return;
 
                 } else {
                     
@@ -106,6 +107,12 @@ const play = () => {
             }
         });
 
+        document.addEventListener('keyup', (e) => {
+            if(e.key == 'ArrowUp' || e.key == ' '){
+                characterBird.src = './images/flappybirdv1.gif';
+            }
+        });
+
         let containercheck = container.getBoundingClientRect();        
 
         if((bird_props.top <= containercheck.top && bird_props.bottom <= containercheck.top) || (bird_props.top >= containercheck.bottom && bird_props.bottom > containercheck.bottom)){
@@ -116,13 +123,13 @@ const play = () => {
             console.log("ENDED");
             
             window.location.reload();
+            return;
 
         }
 
         bird_property.style.top = bird_props.top + bird_dy + 'px';
         bird_props = bird_property.getBoundingClientRect();
         
-
         requestAnimationFrame(apply_gravity); //this will apply the gravity onto the bird
     }
     
