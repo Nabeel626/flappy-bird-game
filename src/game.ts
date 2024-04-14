@@ -102,14 +102,14 @@ const play = () => {
 
         document.addEventListener('keydown', (event) => {
             if(event.key == 'ArrowUp' || event.key == ' '){
-                characterBird.src = "./src/images/flappybirdv1.gif";
+                characterBird.src = "/src/images/flappybirdv1.gif";
                 bird_dy = -7.6;
             }
         });
 
         document.addEventListener('keyup', (e) => {
             if(e.key == 'ArrowUp' || e.key == ' '){
-                characterBird.src = "./src/images/flappybirdv1.gif";
+                characterBird.src = "/src/images/flappybirdv1.gif";
             }
         });
 
@@ -151,7 +151,7 @@ const play = () => {
             let pipePosition = Math.floor(Math.random() * 43) + 8; //this randomisers the position of the
             
             showPipeInverted.className = 'showPipe'; //this is styling for the pipes that are at the top
-            showPipeInverted.style.background = `url("./images/pipe2.png") center center`;
+            showPipeInverted.style.background = `url("/src/images/pipe2.png") center center`;
             showPipeInverted.style.backgroundSize = "100% 100%";
             showPipeInverted.style.top = pipePosition - 70 + 'vh';
             showPipeInverted.style.left = '100vw';
@@ -160,7 +160,7 @@ const play = () => {
 
             showPipe.className = 'showPipe'; //this is styling for the pipes that are at the bottom
             showPipe.style.top = pipePosition + pipeGap + 'vh';
-            showPipe.style.background = `url("./images/pipe1.png") center center`;
+            showPipe.style.background = `url("/src/images/pipe1.png") center center`;
             showPipe.style.backgroundSize = "100% 100%";
             showPipe.style.width = 90 + "px";
             showPipe.style.left = '100vw';

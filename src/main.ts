@@ -10,7 +10,7 @@ const mainMenuPage = document.querySelector(".main-menu");
 //WINDOW LOADER WHEN APP STARTS
 const showPage = () => { //This is a on show function where the window is loadded then shpow the page
 
-    body?.setAttribute("style", "display: block");
+    body?.setAttribute("style", "display: block; background-image: url('/src/images/flappybirdbackground.gif');");
     loadingBar?.setAttribute("style", "display: none;");
     mainMenuPage?.setAttribute("style", "display: grid;");
 
