@@ -149,9 +149,12 @@ const play = () => {
             seperatePipes = 0;
 
             let pipePosition = Math.floor(Math.random() * 43) + 8; //this randomisers the position of the
-            
+            const pipeImgURL = new URL("/pipe1.png", import.meta.url).href;
+            const pipeImg2URL = new URL("/pipe2.png", import.meta.url).href;
+
+
             showPipeInverted.className = 'showPipe'; //this is styling for the pipes that are at the top
-            showPipeInverted.style.background = `url("/pipe2.png") center center`;
+            showPipeInverted.style.background = `url(${pipeImg2URL}) center center`;
             showPipeInverted.style.backgroundSize = "100% 100%";
             showPipeInverted.style.top = pipePosition - 70 + 'vh';
             showPipeInverted.style.left = '100vw';
@@ -160,7 +163,7 @@ const play = () => {
 
             showPipe.className = 'showPipe'; //this is styling for the pipes that are at the bottom
             showPipe.style.top = pipePosition + pipeGap + 'vh';
-            showPipe.style.background = `url("/pipe1.png") center center`;
+            showPipe.style.background = `url(${pipeImgURL}) center center`;
             showPipe.style.backgroundSize = "100% 100%";
             showPipe.style.width = 90 + "px";
             showPipe.style.left = '100vw';
