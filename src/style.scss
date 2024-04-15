@@ -31,7 +31,7 @@ $alt-shadow-color:  grey;
 #main {
     height: 100vh; 
     margin: 0; 
-    box-sizing: border-box; 
+    box-sizing: border-box;
     background-size: cover; 
     background-repeat:no-repeat;
 }
@@ -39,7 +39,7 @@ $alt-shadow-color:  grey;
 #main2 {
     background-repeat: no-repeat;
     height: 100vh;
-    background-image: url("./images/flappybirdbackground.gif");
+    background: url("./images/flappybirdbackground.gif");
     margin: 0;
     box-sizing: border-box;
     background-size: cover;
