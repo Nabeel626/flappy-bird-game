@@ -100,16 +100,18 @@ const play = () => {
         if(game_state != 'Play') return;
         bird_dy = bird_dy + grativy;
 
+        const birdImgURL = new URL("/flappybirdv1.gif", import.meta.url).href;
+
         document.addEventListener('keydown', (event) => {
             if(event.key == 'ArrowUp' || event.key == ' '){
-                characterBird.src = "/flappybirdv1.gif";
+                characterBird.src = birdImgURL;
                 bird_dy = -7.6;
             }
         });
 
         document.addEventListener('keyup', (e) => {
             if(e.key == 'ArrowUp' || e.key == ' '){
-                characterBird.src = "/flappybirdv1.gif";
+                characterBird.src = birdImgURL;
             }
         });
 
