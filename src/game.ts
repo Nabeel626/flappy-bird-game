@@ -104,14 +104,14 @@ const play = () => {
 
         document.addEventListener('keydown', (event) => {
             if(event.key == 'ArrowUp' || event.key == ' '){
-                characterBird.src = birdImgURL;
+                characterBird.src = `${birdImgURL}`;
                 bird_dy = -7.6;
             }
         });
 
         document.addEventListener('keyup', (e) => {
             if(e.key == 'ArrowUp' || e.key == ' '){
-                characterBird.src = birdImgURL;
+                characterBird.src = `${birdImgURL}`;
             }
         });
 
