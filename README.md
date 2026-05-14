@@ -21,19 +21,19 @@ To run this app, follow the steps below:
 1. Clone the repository to your local machine:
 
   -   Using GIT bash
-      - git clone https://github.com/(your-username)/flappy-bird-game.git
+      - git clone https://github.com/Nabeel626/flappy-bird-game.git
 
-2. Open the project directory in your code editor or you can type:
+2. Open the project directory in your code editor or you can type: (Skip Step if you opened project via VS code/ IntelliJ)
 
   -   Using GIT bash
-      - code .
+      - code . 
 
-3 .Install dependencies using npm:
+3. Install dependencies using npm:
 
   -   Using GIT bash
       - npm install
 
-4 .Build the project:
+4. Build the project:
   -  Open 'index.html' and then run "npm run dev" or "npm run build"
 
 ## License
